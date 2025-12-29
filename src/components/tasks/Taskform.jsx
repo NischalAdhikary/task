@@ -52,7 +52,19 @@ export default function Taskform({ title, onClose, data, setTask, onSubmit }) {
         <Button variant={"secondary"} onClick={onClose}>
           Cancel
         </Button>
-        <Button onClick={() => onSubmit(data)} variant={"success"}>
+        <Button
+          onClick={() => {
+            onSubmit(data);
+            onClose();
+            setTask({
+              title: "",
+              status: "pending",
+              dueDate: "",
+              description: "",
+            });
+          }}
+          variant={"success"}
+        >
           Save
         </Button>
       </div>

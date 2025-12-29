@@ -30,8 +30,12 @@ export default function TaskMain() {
   }, []);
 
   const onSaveClick = async (data) => {
-    await createTask(data);
-    fetchTasks();
+    if (data.title === "" || data.dueDate === "") {
+      return;
+    } else {
+      await createTask(data);
+      fetchTasks();
+    }
   };
   const getFilteredTasks = () => {
     let filtered = tasks;

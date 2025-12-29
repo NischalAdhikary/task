@@ -1,14 +1,8 @@
 import React from "react";
 import Modal from "../ui/modal";
 import Button from "../ui/button";
-import { deleteTask, getTasks } from "../../api/taskapp";
 
-export default function Taskdelete({ onClose, id }) {
-  const onSubmit = async () => {
-    await deleteTask(id);
-    await getTasks();
-    onClose();
-  };
+export default function Taskdelete({ onClose, id, onSubmit }) {
   return (
     <Modal>
       <div className="p-4 w-auto rounded bg-white flex gap-10 flex-col">
@@ -19,7 +13,7 @@ export default function Taskdelete({ onClose, id }) {
           <Button variant={"secondary"} onClick={onClose}>
             Cancel
           </Button>
-          <Button onClick={onSubmit} variant={"danger"}>
+          <Button onClick={() => onSubmit(id)} variant={"danger"}>
             Yes
           </Button>
         </div>

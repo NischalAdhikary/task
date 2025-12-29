@@ -6,7 +6,7 @@ import Taskform from "./Taskform";
 import Taskdelete from "./Taskdelete";
 
 import TaskItemSkeleton from "./SkeletonTaskList";
-import { updateTask, updateTaskStatus } from "../../api/taskapp";
+import { deleteTask, updateTask, updateTaskStatus } from "../../api/taskapp";
 import DropdownMenu from "../ui/dropdown";
 
 const statusOptions = [
@@ -43,6 +43,11 @@ export default function TaskItem({ items, loading, refetch }) {
     refetch();
 
     setEditModal(false);
+  };
+  const onDeleteSubmit = async (id) => {
+    await deleteTask(id);
+    setDeleteModal(false);
+    refetch();
   };
   const onStatusChange = async (id, newStatus) => {
     await updateTaskStatus(id, newStatus);
@@ -127,7 +132,11 @@ export default function TaskItem({ items, loading, refetch }) {
         </Modal>
       )}
       {deleteModal && (
-        <Taskdelete id={selectedTask} onClose={() => setDeleteModal(false)} />
+        <Taskdelete
+          id={selectedTask}
+          onSubmit={onDeleteSubmit}
+          onClose={() => setDeleteModal(false)}
+        />
       )}
     </div>
   );

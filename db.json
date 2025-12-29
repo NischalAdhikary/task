@@ -2,7 +2,7 @@
   "tasks": [
     {
       "id": "c680",
-      "title": "C++ Course",
+      "title": "C++ Course read and write",
       "status": "done",
       "description": "Classic beef patty with cheese, lettuce, and special sauce",
       "dueDate": "2025-12-29"
@@ -20,6 +20,13 @@
       "status": "done",
       "description": "Classic beef patty with cheese, lettuce, and special sauce and pizza man",
       "dueDate": "2026-01-15"
+    },
+    {
+      "id": "658b",
+      "title": "Sql",
+      "status": "pending",
+      "description": "Classic beef patty with cheese, lettuce, and special sauce",
+      "dueDate": "2026-01-10"
     }
   ]
 }

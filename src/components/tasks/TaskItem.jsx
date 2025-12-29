@@ -16,7 +16,7 @@ const statusOptions = [
     label: "Completed",
   },
 ];
-export default function TaskItem({ items, loading }) {
+export default function TaskItem({ items, loading, refetch }) {
   const [editModal, setEditModal] = useState(false);
   const [deleteModal, setDeleteModal] = useState(false);
   const [selectedTask, setSeletedTask] = useState(null);
@@ -40,10 +40,13 @@ export default function TaskItem({ items, loading }) {
   const onEditSubmit = async (data) => {
     console.log(data);
     await updateTask(data);
+    refetch();
+
     setEditModal(false);
   };
   const onStatusChange = async (id, newStatus) => {
     await updateTaskStatus(id, newStatus);
+    refetch();
     setStatusOpen(false);
   };
 

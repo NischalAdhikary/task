@@ -19,17 +19,19 @@ export default function TaskMain() {
   const debounceValue = useDebounce(query, 400);
   const [filter, setFilter] = useState("all");
   const [sortBy, setSortBy] = useState("");
+  const fetchTasks = async () => {
+    setTaskLoading(true);
+    const result = await getTasks();
+    setTasks(result);
+    setTaskLoading(false);
+  };
   useEffect(() => {
-    const fetchTasks = async () => {
-      const result = await getTasks(setTasks);
-      setTasks(result);
-      setTaskLoading(false);
-    };
     fetchTasks();
-  }, [taskLoading]);
+  }, []);
 
   const onSaveClick = async (data) => {
     await createTask(data);
+    fetchTasks();
   };
   const getFilteredTasks = () => {
     let filtered = tasks;
@@ -83,6 +85,7 @@ export default function TaskMain() {
         <TaskItem
           items={sortedAndFilteredTasks}
           loading={taskLoading}
+          refetch={fetchTasks}
           setTask={setNewTask}
         />
       </div>

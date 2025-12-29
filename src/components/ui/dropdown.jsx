@@ -1,4 +1,5 @@
 import React, { useRef, useEffect } from "react";
+import Button from "./button";
 
 export default function DropdownMenu({
   options,
@@ -27,17 +28,17 @@ export default function DropdownMenu({
           className="absolute right-0 mt-2 w-40 bg-white border rounded shadow-lg z-10"
         >
           {options.map((option, idx) => (
-            <button
+            <Button
               key={idx}
-              className={`block w-full text-left px-4 py-2 hover:bg-gray-100 ${
-                option.value === value.status ? "bg-blue-500" : ""
+              className={`block w-full text-left px-4 py-2 hover:bg-gray-200 ${
+                option.value === value.status ? "text-blue-500" : ""
               }`}
               onClick={() => {
                 onSelect(value.id, option.value);
               }}
             >
               {option.label}
-            </button>
+            </Button>
           ))}
         </div>
       )}

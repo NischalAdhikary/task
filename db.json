@@ -1,0 +1,25 @@
+{
+  "tasks": [
+    {
+      "id": "c680",
+      "title": "C++ Course",
+      "status": "done",
+      "description": "Classic beef patty with cheese, lettuce, and special sauce",
+      "dueDate": "2025-12-29"
+    },
+    {
+      "id": "d1ce",
+      "title": "React Task",
+      "status": "pending",
+      "description": "Classic beef patty with cheese, lettuce, and special sauce",
+      "dueDate": "2026-01-10"
+    },
+    {
+      "id": "0b6c",
+      "title": "Java",
+      "status": "done",
+      "description": "Classic beef patty with cheese, lettuce, and special sauce and pizza man",
+      "dueDate": "2026-01-15"
+    }
+  ]
+}
